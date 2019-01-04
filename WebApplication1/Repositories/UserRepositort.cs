@@ -25,7 +25,7 @@ namespace WebApplication1.Repositories
 
         public IdentityUser GetUserByName(string name)
         {
-            return _context.Users.SingleOrDefault(x => x.UserName == name);
+            return _context.Users.FirstOrDefault(x => x.UserName == name);
         }
 
         public void AddOrUpdateUser(IdentityUser user)

@@ -1,0 +1,55 @@
+.password {
+  width: 300px !important;
+  margin: auto;
+  -webkit-padding-after: 5px;
+  padding-block-end: 5px;
+  margin-top: 10px;
+  margin-left: 43%;
+}
+
+.username {
+  width: 300px !important;
+  margin: auto;
+  -webkit-padding-after: 5px;
+  padding-block-end: 5px;
+  margin-top: 330px;
+  margin-left: 43%;
+}
+
+.password input,
+.password button {
+  height: 75px;
+}
+
+.username input,
+.username button {
+  height: 75px;
+  margin-top: -17px;
+}
+.position-icon {
+  position: relative !important;
+  margin: auto !important;
+}
+.position-icon-pass {
+  position: relative !important;
+  margin-top: 10px !important;
+}
+.font-size {
+  font-size: 25px;
+}
+
+.button-all {
+  background-color: #46b8da !important;
+  width: 300px !important;
+  -webkit-padding-after: 5px;
+  padding-block-end: 5px;
+  margin-left: 33px;
+  margin-top: 10px;
+  height: 75px;
+}
+.textDecoration {
+  text-decoration: none;
+}
+.textdecoration:hover {
+  text-decoration: none;
+}

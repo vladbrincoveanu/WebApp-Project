@@ -46,7 +46,12 @@ namespace WebApplication1
             services.AddTransient<IShoppingListRepository,ShoppingListRepository>();
             services.AddTransient<IShoppingListService, ShoppingListService>();
             services.AddAutoMapper();
-
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -69,7 +74,7 @@ namespace WebApplication1
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+            app.UseCors("MyPolicy");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

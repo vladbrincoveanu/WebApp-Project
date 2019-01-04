@@ -48,7 +48,6 @@ C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.csproj.CoreCompileInputs.cache
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.RazorAssemblyInfo.cache
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.RazorAssemblyInfo.cs
-C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.AssemblyInfoInputs.cache
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.AssemblyInfo.cs
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.TagHelpers.input.cache
@@ -72,3 +71,4 @@ C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.dll
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.pdb
 C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\WebApplication1.csproj.CopyComplete
+C:\Users\VladPC\Desktop\an4\sem1\SD\Project\WebApplication1\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

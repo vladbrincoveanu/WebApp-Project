@@ -12,5 +12,6 @@ namespace WebApplication1.Services
         List<UserViewModel> GetAll();
         void DeleteUser(string name);
         void NotifyAllUsers(List<string> mails, string title, string content);
+        UserViewModel LogIn(string username, string password);
     }
 }

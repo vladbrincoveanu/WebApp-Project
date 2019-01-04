@@ -23,10 +23,10 @@ namespace WebApplication1.Services
 
         public void AddUpdateUser(UserViewModel user)
         {
-            EmailSend.SendEmailTo(user.Email, "Registered at Shopping Site", "You have registered succesfully " + user.UserName);
             user.PasswordHash = PasswordEncoder.EncodePasswordMd5(user.PasswordHash);
             _userRepository.AddOrUpdateUser(_mapper.Map<IdentityUser>(user));
             _userRepository.Save();
+            EmailSend.SendEmailTo(user.Email, "Registered at Shopping Site", "You have registered succesfully " + user.UserName);
         }
 
         public List<UserViewModel> GetAll()
@@ -50,33 +50,29 @@ namespace WebApplication1.Services
             }
         }
 
-        #region outdated login
         public UserViewModel LogIn(string username, string password)
         {
-            var matchedUser = _userRepository.GetUserByName(username);
-
-            if (matchedUser == null) return new UserViewModel();
-            if (!matchedUser.PasswordHash.Equals(PasswordEncoder.EncodePasswordMd5(password))) return new UserViewModel();
-            if (matchedUser.Id != null) return _mapper.Map<UserViewModel>(matchedUser);
-            var guidString = System.Guid.NewGuid().ToString();
-            matchedUser.Id = guidString;
-            _userRepository.AddOrUpdateUser(matchedUser);
-            return _mapper.Map<UserViewModel>(matchedUser);
-
-        }
-
-        public void LogOut(UserViewModel user)
-        {
-            var matchedUser = _userRepository.GetUserByName(user.Email);
-
-            if (matchedUser == null) return;
-            matchedUser.Id = null;
-            _userRepository.AddOrUpdateUser(matchedUser);
+            return _mapper.Map<UserViewModel>(_userRepository.GetUserByName(username));
+//            if (matchedUser == null) return new UserViewModel();
+//            if (!matchedUser.PasswordHash.Equals(PasswordEncoder.EncodePasswordMd5(password))) return new UserViewModel();
+//            if (matchedUser.Id != null) return _mapper.Map<UserViewModel>(matchedUser);
+//            var guidString = System.Guid.NewGuid().ToString();
+//            matchedUser.Id = guidString;
+//            _userRepository.AddOrUpdateUser(matchedUser);
+//            return _mapper.Map<UserViewModel>(matchedUser);
 
         }
+//
+//        public void LogOut(UserViewModel user)
+//        {
+//            var matchedUser = _userRepository.GetUserByName(user.Email);
+//
+//            if (matchedUser == null) return;
+//            matchedUser.Id = null;
+//            _userRepository.AddOrUpdateUser(matchedUser);
+//
+//        }
 
-
-        #endregion
     }
 
 
