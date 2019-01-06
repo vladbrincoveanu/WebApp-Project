@@ -20,7 +20,8 @@ namespace WebApplication1
             CreateMap<IngredientViewModel, Ingredient>();
             CreateMap<Recipe, RecipeViewModel>();
             CreateMap<RecipeViewModel, Recipe>();
-            CreateMap<QuantityTypeViewModel, QuantityType>();
+            CreateMap<QuantityTypeViewModel, QuantityType>()
+                .ConvertUsing(qtype => (QuantityType)qtype.Id);
             CreateMap<QuantityType, QuantityTypeViewModel>();
             CreateMap<IdentityUser, UserViewModel>();
             CreateMap<UserViewModel,IdentityUser>();

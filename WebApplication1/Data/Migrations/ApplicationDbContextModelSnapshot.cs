@@ -184,6 +184,27 @@ namespace WebApplication1.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("RecipesBox.Domain.Models.ItemListModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content");
+
+                    b.Property<double>("Quantity");
+
+                    b.Property<int>("QuantityType");
+
+                    b.Property<int?>("ShoppingListId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShoppingListId");
+
+                    b.ToTable("ItemListModels");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Ingredient", b =>
                 {
                     b.Property<int>("Id")
@@ -200,13 +221,9 @@ namespace WebApplication1.Data.Migrations
 
                     b.Property<int?>("RecipeId");
 
-                    b.Property<int?>("ShoppingListId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("RecipeId");
-
-                    b.HasIndex("ShoppingListId");
 
                     b.ToTable("Ingredients");
                 });
@@ -221,13 +238,9 @@ namespace WebApplication1.Data.Migrations
 
                     b.Property<int>("Rating");
 
-                    b.Property<int?>("ShoppingListId");
-
                     b.Property<string>("Summary");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ShoppingListId");
 
                     b.ToTable("Recipes");
                 });
@@ -309,22 +322,18 @@ namespace WebApplication1.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("RecipesBox.Domain.Models.ItemListModel", b =>
+                {
+                    b.HasOne("WebApplication1.Models.ShoppingList")
+                        .WithMany("ItemList")
+                        .HasForeignKey("ShoppingListId");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Ingredient", b =>
                 {
                     b.HasOne("WebApplication1.Models.Recipe")
                         .WithMany("Ingredients")
                         .HasForeignKey("RecipeId");
-
-                    b.HasOne("WebApplication1.Models.ShoppingList")
-                        .WithMany("Ingredients")
-                        .HasForeignKey("ShoppingListId");
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.Recipe", b =>
-                {
-                    b.HasOne("WebApplication1.Models.ShoppingList")
-                        .WithMany("Recipes")
-                        .HasForeignKey("ShoppingListId");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Step", b =>

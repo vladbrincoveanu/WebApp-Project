@@ -21,13 +21,14 @@ namespace WebApplication1.Repositories
         public List<ShoppingList> GetAll()
         {
             return _context.ShoppingLists
+                .Include(sl=>sl.ItemList)
                 .ToList();
         }
 
         public ShoppingList GetById(int shoppingListId)
         {
-            return _context.ShoppingLists.Include(e=>e.Ingredients)
-                .Include(e=>e.Recipes)
+            return _context.ShoppingLists
+                .Include(e=>e.ItemList)
                 .SingleOrDefault(e=> e.Id == shoppingListId);
         }
 
@@ -35,13 +36,11 @@ namespace WebApplication1.Repositories
         {
             if (shoppingList.Id != 0)
             {
-                var shoppingListEntity = _context.ShoppingLists.Include("Ingredients").Include("Recipes").FirstOrDefault(n => n.Id == shoppingList.Id);
+                var shoppingListEntity = _context.ShoppingLists.FirstOrDefault(n => n.Id == shoppingList.Id);
                 shoppingListEntity.Name = shoppingList.Name;
                 shoppingListEntity.Description = shoppingList.Description;
-                DeleteData(shoppingListEntity.Ingredients);
-                shoppingListEntity.Ingredients.AddRange(shoppingList.Ingredients);
-                DeleteData(shoppingListEntity.Recipes);
-                shoppingListEntity.Recipes.AddRange(shoppingList.Recipes);
+                DeleteData(shoppingListEntity.ItemList);
+                shoppingListEntity.ItemList.AddRange(shoppingList.ItemList);
                 _context.ShoppingLists.Update(shoppingListEntity);
             }
             else
@@ -59,7 +58,7 @@ namespace WebApplication1.Repositories
         }
         public void DeleteShoppingList(ShoppingList shoppingList)
         {
-            _context.Ingredients.RemoveRange(shoppingList.Ingredients);
+            _context.ItemListModels.RemoveRange(shoppingList.ItemList);
             _context.ShoppingLists.Remove(shoppingList);
         }
 

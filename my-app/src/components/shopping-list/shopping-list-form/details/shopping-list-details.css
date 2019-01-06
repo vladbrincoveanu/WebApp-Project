@@ -1,0 +1,88 @@
+.shopping-list-details {
+  justify-content: space-between;
+}
+
+.shopping-list-title {
+  width: 672px;
+}
+
+.shopping-list-description {
+  width: 75%;
+}
+
+.shopping-list-category {
+  text-indent: 290px;
+  margin-left: 10px;
+  height: 45px;
+  width: 900px;
+}
+
+.shopping-list-tags {
+  margin-left: 47px;
+}
+
+.cStyle {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  border: 1px solid lightgrey;
+  overflow: auto;
+  margin-left: 47px;
+}
+
+.iStyle {
+  display: inline-block;
+  font-size: 0.9em;
+  margin: 5px;
+  width: auto;
+  border: 0;
+}
+
+.tagStyle {
+  display: inline-block;
+  background-color: #46b8da;
+  color: white;
+  font-size: 0.9em;
+  margin: 5px;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  width: auto;
+}
+
+div.shopping-list-file-upload {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 35px;
+  margin-left: 37px;
+  float: left !important;
+}
+
+input[type="button"].shopping-list-file-upload {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  border: 1px solid grey;
+}
+
+input[type="file"].shopping-list-file-upload {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+}
+
+.shopping-list-tab .attached-photo {
+  max-height: 400px;
+  max-width: 500px;
+}

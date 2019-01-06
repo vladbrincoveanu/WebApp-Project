@@ -2,14 +2,22 @@ import "./App.css";
 import rootStore from "./store/root-store";
 import { Provider } from "mobx-react";
 import { BrowserRouter as Router } from "react-router-dom";
-import logo from "./logo.svg";
 import { UserModel, UserCommandModel } from "./view-models/users";
 import LoginRoute from "./components/login";
-// import HomeRoute from "./components/home";
 import RegisterRoute from "./components/register";
 import * as React from "react";
 import AdminRoute from "./components/admin";
 import UserRoute from "./components/user";
+import TabMenu from "./components/tab-menu/TabMenu";
+import Welcome from "./components/welcome/Welcome";
+import RecipeRoute from "./components/recipes/recipes-list";
+import RecipeFormRoute from "./components/recipes/recipe-form";
+import RecipesTabMenuRoute from "./components/recipes/recipes-tab-menu";
+import SingleRecipeRoute from "./components/recipes/recipe-view";
+import ShoppingListTabMenuRoute from "./components/shopping-list/shopping-list-tab-menu";
+import ShoppingListFormRoute from "./components/shopping-list/shopping-list-form";
+import ShoppingListRoute from "./components/shopping-list/shopping-list";
+import ShoppingListViewRoute from "./components/shopping-list/shopping-list-view";
 
 interface State {
   logged: any;
@@ -26,16 +34,18 @@ class App extends React.Component<{}, State> {
   renderWelcomeUser = () => {
     const userJson = localStorage.getItem("user");
     let user: any;
-    if (userJson != null) {
+    if (userJson !== null && userJson != "") {
       user = JSON.parse(userJson);
+      const currentUser = new UserCommandModel(
+        null,
+        user.userName,
+        user.mail,
+        user.passwordHash
+      );
+      return "Buna ziua " + currentUser.userName;
+    } else {
+      return "Nothing!";
     }
-    const currentUser = new UserCommandModel(
-      null,
-      user.name,
-      user.mail,
-      user.passwordhash
-    );
-    return "Serus" + currentUser.userName;
   };
 
   updateState = () => {
@@ -64,10 +74,20 @@ class App extends React.Component<{}, State> {
                   <RegisterRoute />
                   <AdminRoute />
                   <UserRoute />
-                  {/* <TabMenu/> */}
-                  {/* <Welcome
-                    renderWelcomeUser= this.renderWelcomeUser()
-                  /> */}
+                  <TabMenu viewStore={rootStore.viewStore} />
+                  <Welcome
+                    renderWelcomeUser={this.renderWelcomeUser}
+                    updateState={this.updateState}
+                    userStore={rootStore.userStore}
+                  />
+                  <RecipesTabMenuRoute />
+                  <RecipeRoute />
+                  <SingleRecipeRoute />
+                  <RecipeFormRoute />
+                  <ShoppingListTabMenuRoute />
+                  <ShoppingListRoute />
+                  <ShoppingListFormRoute />
+                  <ShoppingListViewRoute />
                 </React.Fragment>
               </Router>
             </React.Fragment>

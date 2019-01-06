@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,9 +34,8 @@ namespace WebApplication1.Controllers
             return _mapper.Map<IngredientViewModel>(_ingredientsRepository.GetIngredientById(id));
         }
 
-        [Route("add")]
-        [HttpPost]
-        public ActionResult AddOrUpdateRecipe([FromBody]IngredientViewModel ingredient)
+        [HttpPost("[action]")]
+        public ActionResult AddOrUpdateIngredient([FromBody]IngredientViewModel ingredient)
         {
             _ingredientsRepository.InsertIngredient(_mapper.Map<Ingredient>(ingredient));
             _ingredientsRepository.Save();
@@ -55,6 +55,19 @@ namespace WebApplication1.Controllers
             {
                 return StatusCode(500);
             }
+        }
+
+        [HttpGet("[action]")]
+        public IEnumerable<QuantityTypeViewModel> GetQuantityTypes()
+        {
+            //            var test = _ingredientsRepository.GetIngredients()
+            //                .Select(o => new QuantityTypeViewModel {Id = o.Id, Name = o.QuantityType.ToString()});
+            //            var manualQuantity = test.GroupBy(elem => elem.Name).Select(group => group.First());
+
+            var values = (QuantityType[])Enum.GetValues(typeof(QuantityType));
+            var types = new List<QuantityType>(values);
+            return types.Select(type => new QuantityTypeViewModel { Id = (int)type, Name = type.ToString() }).ToList();
+
         }
     }
 }

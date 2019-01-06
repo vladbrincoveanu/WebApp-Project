@@ -16,44 +16,41 @@ const GET_HEADERS = {
 };
 
 export class UserApiService {
-  addUser(user: UserModel) {
+  async addUser(user: UserModel) {
     let header: RequestInit = {
       ...POST_HEADERS,
       body: JSON.stringify(user)
     };
-    console.log(user);
-    return fetch(baseUrl + "/api/user/AddOrUpdate", header).then(
-      response => response.status
-    );
+    const response = await fetch(baseUrl + "/api/user/AddOrUpdate", header);
+    return response.status;
   }
 
-  logIn(user: UserCommandModel): Promise<UserCommandModel> {
+  async logIn(user: UserCommandModel): Promise<UserCommandModel> {
     let header: RequestInit = {
       ...POST_HEADERS,
       body: JSON.stringify(user)
     };
-    return fetch(baseUrl + "/api/user/LogIn", header)
-      .then(response => response.json())
-      .then(data => data);
+    const response = await fetch(baseUrl + "/api/user/LogIn", header);
+    const data = await response.json();
+    return data;
   }
 
-  getAllUsers(): Promise<UserCommandModel[]> {
+  async getAllUsers(): Promise<UserCommandModel[]> {
     let header: RequestInit = {
       ...GET_HEADERS
     };
-    return fetch(baseUrl + "/api/user/All", header)
-      .then(response => response.json())
-      .then(data => data);
+    const response = await fetch(baseUrl + "/api/user/All", header);
+    const data = await response.json();
+    return data;
   }
 
-  update(user: UserModel) {
+  async update(user: UserModel) {
     let header: RequestInit = {
       ...POST_HEADERS,
       body: JSON.stringify(user)
     };
-    return fetch(baseUrl + "/api/User/AddOrUpdate", header).then(
-      response => response.status
-    );
+    const response = await fetch(baseUrl + "/api/User/AddOrUpdate", header);
+    return response.status;
   }
 }
 export default new UserApiService();

@@ -1,0 +1,14 @@
+.backColor {
+  background-color: #46b8da !important;
+  height: 50px !important;
+  width: 200px !important;
+}
+.positioning {
+  margin-top: -95px;
+  margin-right: 190px;
+  float: right;
+}
+
+.hoverMenu > *:hover {
+  background-color: #46b8da !important;
+}

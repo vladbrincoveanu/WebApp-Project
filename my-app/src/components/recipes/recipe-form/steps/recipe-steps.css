@@ -1,0 +1,45 @@
+.recipe-steps {
+	justify-content: space-between;
+}
+
+.recipe-step {
+	width: 650px;
+	border-radius: 3px;
+}
+
+.step-manage {
+	margin-top: auto;
+	margin-bottom: auto;
+	right: 0;
+	cursor: pointer;
+}
+
+.added-step {
+	margin-left: 70px;
+	margin-right: auto;
+}
+
+.valid {
+	border: 2px solid black;
+}
+
+.invalid {
+	border: 2px solid #d22d27;
+}
+
+.error {
+	color: #d22d27;
+	font-weight: bold;
+}
+
+.error-message {
+	margin-left: 10px;
+}
+
+.drag-handle {
+	position: relative;
+	left: -45px;
+	margin-top: auto;
+	margin-bottom: auto;
+	cursor: pointer;
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RecipesBox.Domain.Models;
 using WebApplication1.Models;
 
 namespace WebApplication1.Data
@@ -17,5 +18,6 @@ namespace WebApplication1.Data
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Step> Steps { get; set; }
         public DbSet<ShoppingList> ShoppingLists { get; set; }
+        public DbSet<ItemListModel> ItemListModels { get; set; }
     }
 }

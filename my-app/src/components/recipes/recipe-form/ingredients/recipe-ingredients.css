@@ -1,0 +1,31 @@
+.recipe-ingredients {
+    justify-content: space-between;
+}
+
+.recipe-ingredients-name {
+    width: 200px;
+}
+
+.recipe-ingredients-quantity {
+    width: 150px;
+}
+
+.recipe-ingredients-quantity-type {
+    width: 150px;
+}
+
+.recipe-ingredients-buttons {
+    border-radius: 50%;
+    border-style: none;
+    box-shadow: 0 0 5px;
+    zoom: 1.5;
+}
+
+select {
+    padding: 3px;
+}
+
+.err {
+    color: red;
+    display: block;
+}

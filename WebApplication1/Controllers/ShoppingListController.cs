@@ -19,17 +19,17 @@ namespace WebApplication1.Controllers
         [HttpGet("[action]")]
         public List<ShoppingListViewModel> All()
         {
-            return _shoppingListService.GetAll();
+            var data = _shoppingListService.GetAll();
+            return data;
         }
 
-        [Route("GetRecipeById/{id}")]
-        public ShoppingListViewModel GetRecipeById(int id)
+        [Route("GetShoppingListById/{id}")]
+        public ShoppingListViewModel GetShoppingListById(int id)
         {
             return _shoppingListService.GetShoppingListById(id);
         }
 
-        [Route("AddOrUpdateShoppingList")]
-        [HttpPost]
+        [HttpPost("[action]")]
         public ActionResult AddOrUpdateShoppingList([FromBody]ShoppingListViewModel shoppingList)
         {
             _shoppingListService.AddOrUpdateShoppingList(shoppingList);

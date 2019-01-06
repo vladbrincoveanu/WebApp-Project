@@ -1,0 +1,52 @@
+.shopping-list-list {
+  justify-content: space-between;
+}
+
+.shopping-list-item {
+  width: 350px;
+  border-width: 1px;
+}
+
+.shopping-list-manage {
+  margin-top: auto;
+  margin-bottom: auto;
+  right: -20;
+  cursor: pointer;
+  margin-right: 60px;
+  border-color: lightskyblue;
+}
+
+.shopping-list-input {
+  width: 80px;
+  height: 35px;
+  border-radius: 2px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.bp3-label-editItemLabel {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.bp3-label-editQuantityLabel {
+  margin-left: 345px;
+}
+
+.bp3-label-editQuantityTypeLabel {
+  margin-left: auto;
+  margin-right: 170px;
+}
+
+.valid {
+  border: 2px solid lightblue;
+}
+
+.invalid {
+  border: 2px solid #d22d27;
+}
+
+.shoppinglist-items-quantity-type {
+  width: 150px;
+  margin: auto 0;
+}

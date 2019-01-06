@@ -31,8 +31,7 @@ namespace WebApplication1.Controllers
                 return _recipesService.GetRecipeById(id);
             }
 
-            [Route("AddOrUpdateRecipe")]
-            [HttpPost]
+            [HttpPost("[action]")]
             public ActionResult AddOrUpdateRecipe([FromBody]RecipeViewModel recipe)
             {
                 _recipesService.AddOrUpdateRecipe(recipe);
@@ -40,7 +39,7 @@ namespace WebApplication1.Controllers
 
             }
 
-            [HttpDelete("Delete/{id}")]
+            [HttpGet("Delete/{id}")]
             public ActionResult Delete(int id)
             {
                 try

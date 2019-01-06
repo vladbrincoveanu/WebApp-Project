@@ -1,0 +1,283 @@
+.topText {
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 50px;
+}
+
+.view-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.column-ShoppingList {
+  flex-basis: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .rowShoppingList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: -50px 30px;
+  }
+  .columnShoppingList {
+    flex: 1;
+  }
+  ._25 {
+    flex: 2.5;
+  }
+  ._5 {
+    flex: 5;
+  }
+}
+
+.column-ShoppingList {
+  padding: 50px;
+  margin: 10px 25px;
+}
+.column-products-shopping-list {
+  width: 3700px;
+  height: 500px;
+  margin-right: 20px;
+  margin-left: 30px;
+  overflow-y: auto;
+  height: auto;
+  margin-bottom: 10px;
+}
+.column-image-shopping-list {
+  padding: 50px;
+  height: 1%;
+  margin-right: 50px;
+  margin-left: -25px;
+}
+
+.heading-shopping-list {
+  border-bottom: 5px solid #46b8da;
+  width: 500px;
+  margin-left: 525px;
+}
+
+.heading-column-shopping-list {
+  border: 0px;
+  padding-right: 50px;
+}
+
+.border-section {
+  border: 1px solid #46b8da;
+  border-radius: 3px;
+}
+
+.icon {
+  margin: 10px;
+  float: right;
+  cursor: pointer;
+  color: #666;
+}
+
+.left-align-ShoppingList {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.expand-button {
+  display: inline;
+  float: left;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-top: 25px;
+}
+
+.bookmark-icon-ShoppingList {
+  float: right;
+  margin-top: -35px;
+}
+
+.bookmark-icon-ShoppingListNotes {
+  float: right;
+  margin-top: -35px;
+}
+
+.bookmark-icon-ShoppingListProducts {
+  float: right;
+  margin-top: 0px;
+}
+
+.bookmark-icon-ShoppingListTags {
+  float: right;
+  margin-top: 0px;
+}
+
+.bookmark-icon-ShoppingListReminder {
+  float: right;
+  margin-top: -1px;
+}
+.section-content-shopping-list {
+  margin-top: 30px;
+  margin-right: 25%;
+}
+
+.column-reminder-tags {
+  padding: 25px;
+  margin-bottom: 50%;
+}
+
+.tags-table {
+  margin-bottom: 45px;
+  margin-right: 95px;
+  border: 1px solid #46b8da;
+  table-layout: fixed;
+  width: 500px;
+  border-radius: 3px;
+  height: 180px;
+  overflow-y: auto;
+  height: auto;
+}
+.reminder-table {
+  margin-bottom: 45px;
+  margin-right: 95px;
+  border: 1px solid #46b8da;
+  table-layout: fixed;
+  width: 500px;
+  border-radius: 3px;
+  height: 100px;
+  padding-left: 15px;
+  height: auto;
+}
+.notes-table {
+  margin-top: 45px;
+  border: 1px solid #46b8da;
+  table-layout: fixed;
+  width: 500px;
+  border-radius: 3px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.reminder-tags-table td {
+  border: 1px solid #46b8da;
+  color: #666;
+  padding: 10px;
+}
+
+.reminder-tags-table thead {
+  background-color: #d6ecf9;
+  font-weight: bold;
+}
+
+.note-cards {
+  background-color: #ddf1ff;
+  border: rgb(221, 221, 221);
+  border-bottom-style: 2px dashed;
+  padding: 20px;
+  margin: 30px -10px 15px 88px;
+  border-radius: 3px;
+  box-shadow: 1px 5px 5px #ccc;
+}
+
+.overlay-content-shopping-list {
+  position: absolute;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  bottom: 15%;
+  margin: 50px;
+  padding: 50px;
+  float: bottom;
+  background-color: white;
+  margin: auto;
+}
+
+.minimize-button {
+  cursor: pointer;
+  float: left;
+  margin: auto;
+}
+
+.backdrop {
+  background-color: white;
+}
+
+.big-products label {
+  font-size: large;
+}
+
+.big-products h2,
+.big-notes h2 {
+  font-size: xx-large;
+}
+
+.big-notes p {
+  font-size: large;
+}
+
+.shopping-list-details span {
+  font-weight: bold;
+}
+
+.shopping-list-details hr {
+  border-color: #46b8da;
+  border-width: 3px;
+}
+
+.summary {
+  float: right;
+  margin: 30px 0;
+}
+
+.time-details {
+  display: inline;
+}
+
+.shopping-list-details .column {
+  padding: 0;
+}
+.tagStyle-shopping-list {
+  display: inline-block;
+  background-color: #46b8da;
+  color: white;
+  font-size: 0.9em;
+  margin: 5px;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  width: auto;
+}
+
+.set-left-margin {
+  margin-right: 50px;
+}
+
+.description-css {
+  padding-left: 95px;
+  position: relative;
+}
+
+.category-css {
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.tags-css {
+  margin-bottom: 20px;
+  margin-left: 35px;
+  text-align: left;
+  position: relative;
+}
+
+.small-image-ShoppingList {
+  width: 50%;
+  margin-right: 100px;
+}
+
+.image-ShoppingList {
+  cursor: pointer;
+  width: 400px;
+  height: auto;
+  padding-left: 160px;
+  padding-top: 10px;
+}

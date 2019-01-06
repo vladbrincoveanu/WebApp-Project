@@ -1,0 +1,111 @@
+.recipe-details {
+  justify-content: space-between;
+}
+
+.recipe {
+  width: 650px;
+}
+
+.recipe-summary {
+  width: 650px;
+  height: 950px;
+}
+
+.recipe-servings {
+  width: 650px;
+}
+
+.recipe-time {
+  padding-left: 100px !important;
+}
+
+.heart:before {
+  content: "\2665";
+}
+
+.ratingBar {
+  font-size: 34px;
+  margin-right: 536px;
+  margin-top: -10px;
+}
+
+.bp3-slider {
+  margin-left: 45px;
+}
+
+.divCategory {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  border-style: groove;
+  border-radius: 2px;
+  width: 650px;
+  height: 77px;
+}
+
+.threeDotsButton {
+  background-image: url("/butonPopup.PNG");
+  height: 14px;
+  width: 34px;
+  border: 0;
+  float: right;
+  margin-top: 12px;
+}
+
+.checkList {
+  height: 150px;
+  width: 200px;
+  margin-right: 40px;
+  margin-top: 40px;
+  margin-left: 17px;
+  column-count: 2;
+  column-gap: 212px;
+}
+.errorMessage {
+  color: red;
+}
+
+.styles_overlay__CLSq- {
+  background: rgba(241, 241, 241, 0.75);
+}
+
+.bp3-button.bp3-intent-primary {
+  margin-right: 54px;
+  margin-left: 15px;
+  width: 143px;
+}
+
+.cancelButton {
+  background: #e0e0e0 !important;
+  color: black !important;
+}
+
+.titleCategories {
+  color: #46b8da;
+  padding: 12px;
+  margin-left: 20px;
+  margin-bottom: -17px;
+}
+
+.tagsCategory {
+  display: inline-block;
+  border: 1px solid #46b8da;
+  background: #46b8da;
+  font-size: 12px;
+  display: inline-block;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 2px;
+  color: white;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.valid {
+  border: 2px solid black;
+}
+
+.invalid {
+  border: 2px solid #d22d27 !important;
+}

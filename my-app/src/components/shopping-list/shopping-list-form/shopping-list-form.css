@@ -1,0 +1,72 @@
+.add-edit-shopping-list {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+
+.shopping-list-form {
+  display: flex;
+  width: 800px;
+  flex-direction: column;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 80px;
+}
+
+.save-shopping-list {
+  background-color: #46b8da !important;
+}
+.cancel-shopping-list {
+  background-color: #808080;
+}
+
+.bp3-button {
+  width: 80px;
+}
+
+.bp3-tab.shopping-list-tab {
+  border: 1px solid black;
+  border-radius: 8px 8px 0 0 !important;
+  margin: 0px !important;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.bp3-tab-panel.shopping-list-tab {
+  border: 1px solid black;
+  margin: 0px;
+  padding: 20px;
+}
+
+.submit-button {
+  padding-top: 30px;
+}
+
+.bp3-tab {
+  font-weight: bold;
+}
+
+.bp3-tab-indicator-wrapper ~ .bp3-tab[aria-selected="true"] {
+  background-color: #46b8da !important;
+  color: black;
+}
+
+.bp3-tab.shopping-list-tab,
+.bp3-tab.shopping-list-tab-error {
+  border: 1px solid black;
+  border-radius: 8px 8px 0 0 !important;
+  margin: 0px !important;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.bp3-tab.shopping-list-tab svg {
+  visibility: hidden;
+}
+
+.bp3-tab.shopping-list-tab-error svg {
+  color: #d22d27;
+}
