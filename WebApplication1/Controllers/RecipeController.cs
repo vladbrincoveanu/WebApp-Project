@@ -25,10 +25,10 @@ namespace WebApplication1.Controllers
                 return _recipesService.GetAll();
             }
 
-            [Route("GetRecipeById/{id}")]
+            [HttpGet("GetRecipeById/{id}")]
             public RecipeViewModel GetRecipeById(int id)
             {
-                return _recipesService.GetRecipeById(id);
+                return _recipesService.GetRecipeById(id); ;
             }
 
             [HttpPost("[action]")]

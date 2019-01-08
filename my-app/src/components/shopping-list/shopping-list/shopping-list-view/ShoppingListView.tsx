@@ -22,7 +22,10 @@ export class ShoppingListView extends React.Component<Props, State> {
   state: any;
   constructor(props: Props) {
     super(props);
-    this.state = initialState;
+    this.state = {
+      imageUrl: "../src/images/shoppingimg.png",
+      imageLoadError: true
+    };
   }
 
   private shoppingListShouldBeOmittedAtRender(shoppingList) {
@@ -33,20 +36,15 @@ export class ShoppingListView extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <div className="list-items">
-          {this.props.shoppingLists
-            // .filter(
-            //   shoppingList =>
-            //     !this.shoppingListShouldBeOmittedAtRender(shoppingList)
-            // )
-            .map(shoppingList => {
-              return (
-                <ShoppingListItem
-                  shoppingList={shoppingList}
-                  key={shoppingList.id}
-                  id={shoppingList.id}
-                />
-              );
-            })}
+          {this.props.shoppingLists.map(shoppingList => {
+            return (
+              <ShoppingListItem
+                shoppingList={shoppingList}
+                key={shoppingList.id}
+                id={shoppingList.id}
+              />
+            );
+          })}
         </div>
       </React.Fragment>
     );

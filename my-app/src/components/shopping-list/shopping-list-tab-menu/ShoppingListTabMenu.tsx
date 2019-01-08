@@ -37,7 +37,7 @@ export class ShoppingListTabMenu extends React.Component<Props> {
                 "shopping-list-tab-menu": true
               })}
             >
-              <Link to="/shoppingList/add">Add</Link>
+              <Link to="/admin/shoppingList/add">Add</Link>
             </li>
             <li
               className={classNames({
@@ -45,7 +45,7 @@ export class ShoppingListTabMenu extends React.Component<Props> {
                 "shopping-list-tab-menu": true
               })}
             >
-              <Link to="/shoppingList/all">All</Link>
+              <Link to="/admin/shoppingList/all">All</Link>
             </li>
           </ul>
         </div>

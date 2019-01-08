@@ -33,26 +33,10 @@ class Welcome extends React.Component<Props, State> {
 
   private handleClickEvent(): any {
     localStorage.setItem("logged", "");
-    var nullCheck = localStorage.getItem("user");
-    if (nullCheck == null) {
-    } else {
-      var user: any = JSON.parse(nullCheck);
-    }
-    const currentUser = new UserCommandModel(
-      user.firstName,
-      user.email,
-      user.password
-    );
     this.props.updateState();
-    localStorage.setItem("user", JSON.stringify(""));
-    window.location.href = "/user/login";
-  }
-
-  private handleRedirect(destinationTab: string) {
-    const destinationURL = "/account/" + destinationTab;
-    this.setState({ redirect: <Redirect to={destinationURL} /> }, () => {
-      this.setState({ redirect: undefined });
-    });
+    localStorage.setItem("user", "");
+    localStorage.setItem("logged", "");
+    window.location.href = "/login";
   }
 
   render() {

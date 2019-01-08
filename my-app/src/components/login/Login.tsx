@@ -43,8 +43,9 @@ export class Login extends React.Component<Props, State> {
 
   private loadUser(): void {
     localStorage.setItem("user", JSON.stringify(this.props.userStore.user));
+    localStorage.setItem("logged", JSON.stringify("logged"));
     if (this.props.userStore.user.userName == "DA") {
-      window.location.href = "/";
+      window.location.href = "/admin";
     } else {
       window.location.href = "/user";
     }
@@ -52,6 +53,7 @@ export class Login extends React.Component<Props, State> {
 
   handleUserLogin = () => {
     // this.state.users.map(user => console.log(user));
+    console.log("LOGIN");
     this.props.userStore.logIn(
       new UserCommandModel(null, this.state.username, "", this.state.password),
       this.loadUser.bind(this)
@@ -105,7 +107,7 @@ export class Login extends React.Component<Props, State> {
           </Button>
         </div>
         <div>
-          <Link to="/user/register">
+          <Link to="/register">
             <Button className="button-all textDecoration">Register</Button>
           </Link>
         </div>

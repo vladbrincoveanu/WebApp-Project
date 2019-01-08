@@ -5,9 +5,12 @@ import { ShoppingListForm } from "./ShoppingListForm";
 export default () => {
   return (
     <React.Fragment>
-      <Route path="/shoppingList/add" component={ShoppingListForm} />
-      <Route path="/shoppingList/edit/:id" component={ShoppingListForm} />
-      <Route path="/shoppingList/addRecipe/:id" component={ShoppingListForm} />
+      <Route path="/admin/shoppingList/add" component={ShoppingListForm} />
+      <Route path="/admin/shoppingList/edit/:id" component={ShoppingListForm} />
+      <Route
+        path="/user/shoppingList/addRecipe/:id"
+        component={ShoppingListForm}
+      />
     </React.Fragment>
   );
 };

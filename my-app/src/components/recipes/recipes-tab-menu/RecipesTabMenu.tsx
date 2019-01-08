@@ -7,6 +7,7 @@ import { ViewStore } from "../../../store/view-store";
 import { HeaderTabs } from "../../../view-models/header-tabs";
 import { RecipesTabs } from "../../../view-models/recipes-tabs";
 import { IngredientStore } from "../../../store/ingredient-store";
+import { LocationDescriptor } from "history";
 
 interface Props {
   viewStore: ViewStore;
@@ -32,6 +33,30 @@ class RecipesTabMenu extends React.Component<Props> {
     return this.props.viewStore.activeRecipesTab === tab;
   }
 
+  private checkAdmin(data: string | undefined) {
+    if (data == undefined) return "Error";
+    console.log(data);
+    if (data == "DA") {
+      return "/admin";
+    } else {
+      return "/user";
+    }
+  }
+
+  private linkGenerator(id: number): LocationDescriptor {
+    localStorage.setItem("logged", "");
+    var nullCheck = localStorage.getItem("user");
+    if (nullCheck == null) {
+    } else {
+      var user: any = JSON.parse(nullCheck);
+    }
+    if (id == 1) {
+      return this.checkAdmin(user.userName) + "/recipes/add";
+    } else {
+      return this.checkAdmin(user.userName) + "/recipes/all";
+    }
+  }
+
   public render() {
     return (
       <div>
@@ -44,7 +69,7 @@ class RecipesTabMenu extends React.Component<Props> {
                 "recipe-tab-menu": true
               })}
             >
-              <Link to="/recipes/add">Add</Link>
+              <Link to={this.linkGenerator(1)}>Add</Link>
             </li>
             <li
               className={classNames({
@@ -54,7 +79,7 @@ class RecipesTabMenu extends React.Component<Props> {
                 "recipe-tab-menu": true
               })}
             >
-              <Link to="/recipes/all">All</Link>
+              <Link to={this.linkGenerator(2)}>All</Link>
             </li>
           </ul>
         </div>

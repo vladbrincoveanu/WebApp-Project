@@ -35,7 +35,13 @@ export class RecipesApiService {
   }
 
   async getRecipeById(id: number): Promise<RecipeViewModel> {
-    const response = await fetch(baseUrl + "/api/recipes/GetRecipeById/" + id);
+    let header: RequestInit = {
+      ...GET_HEADERS
+    };
+    const response = await fetch(
+      baseUrl + "/api/recipes/GetRecipeById/" + id,
+      header
+    );
     const data = await response.json();
     return data;
   }

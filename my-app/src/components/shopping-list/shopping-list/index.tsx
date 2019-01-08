@@ -3,5 +3,9 @@ import * as React from "react";
 import { ShoppingList } from "./ShoppingList";
 
 export default () => {
-  return <Route path="/shoppingList/all" component={ShoppingList} />;
+  return (
+    <React.Fragment>
+      <Route path="/admin/shoppingList/all" component={ShoppingList} />
+    </React.Fragment>
+  );
 };

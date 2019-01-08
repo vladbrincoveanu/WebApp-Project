@@ -64,24 +64,26 @@ export class ShoppingListForm extends React.Component<Props, State> {
     let recipeId = props.match.params.id;
 
     let shoppingListId = props.match.params.id;
-    if (shoppingListId) {
-      this.props.shoppingListStore.loadActiveShoppingList(
-        shoppingListId,
-        this.loadShoppingList.bind(this)
-      );
-    }
 
     if (recipeId) {
-      if (props.location.pathname.includes("addRecipe"))
+      if (props.location.pathname.includes("addRecipe")) {
+        console.log("AICI");
         this.props.recipesStore.loadActiveRecipe(
           recipeId,
           this.loadRecipe.bind(this)
         );
-      else
-        this.props.shoppingListStore.loadActiveShoppingList(
-          recipeId,
-          this.loadShoppingList.bind(this)
-        );
+      } else {
+        if (shoppingListId) {
+          this.props.shoppingListStore.loadActiveShoppingList(
+            shoppingListId,
+            this.loadShoppingList.bind(this)
+          );
+        }
+        // this.props.shoppingListStore.loadActiveShoppingList(
+        //   recipeId,
+        //   this.loadShoppingList.bind(this)
+        // );
+      }
     }
   }
   private loadShoppingList(shoppingList: ShoppingListViewModel): void {
@@ -160,7 +162,7 @@ export class ShoppingListForm extends React.Component<Props, State> {
   }
 
   private handleCancel() {
-    window.location.href = "/shoppingList/all";
+    window.location.href = "/admin/shoppingList/all";
   }
 
   private handleNotesError(isError: boolean) {
@@ -314,7 +316,7 @@ export class ShoppingListForm extends React.Component<Props, State> {
                 className="bp3-button bp3-intent-primary save-shopping-list"
                 onClick={this.handleSavedBtnPressed.bind(this)}
               >
-                Save
+                Process
               </button>
               <ShoppingListSaveModal
                 open={this.state.saveModalIsOpen}

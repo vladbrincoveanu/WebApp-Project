@@ -73,13 +73,12 @@ export class ShoppingListModal extends React.Component<
               </div>
             </React.Fragment>
           )}
-          {this.state.requestHasBeenSent &&
-            !this.state.responseHasArrived && (
-              <React.Fragment>
-                <div>Saving shopping list...</div>
-                <Spinner size={Spinner.SIZE_LARGE} />
-              </React.Fragment>
-            )}
+          {this.state.requestHasBeenSent && !this.state.responseHasArrived && (
+            <React.Fragment>
+              <div>Saving shopping list...</div>
+              <Spinner size={Spinner.SIZE_LARGE} />
+            </React.Fragment>
+          )}
 
           {this.state.requestHasBeenSent &&
             this.state.responseHasArrived &&
@@ -92,7 +91,7 @@ export class ShoppingListModal extends React.Component<
                 <div className="submit-button">
                   <Link
                     className="bp3-button bp3-intent-success"
-                    to="/shoppingList/all"
+                    to="/admin/shoppingList/all"
                   >
                     Ok
                   </Link>

@@ -47,7 +47,9 @@ export class ShoppingListItem extends React.Component<Props, State> {
   renderRedirect = () => {
     if (this.state.redirect) {
       return (
-        <Redirect to={"/shoppingList/edit/" + this.props.shoppingList.id} />
+        <Redirect
+          to={"/admin/shoppingList/edit/" + this.props.shoppingList.id}
+        />
       );
     } else {
       return null;
@@ -63,16 +65,25 @@ export class ShoppingListItem extends React.Component<Props, State> {
   render() {
     return (
       <div className="list-item">
-        {/* <MyIcon
-          className="list-item-photo"
-          onClick={this.handleViewShoppingList.bind(this)}
-        /> */}
-        <img
-          src={Sl}
-          alt="no img"
+        <MyIcon
           className="list-item-photo"
           onClick={this.handleViewShoppingList.bind(this)}
         />
+
+        {/* <img
+          src={this.state.imageUrl}
+          onError={e => {
+            if (this.state.imageLoadError) {
+              this.setState({
+                imageLoadError: false
+              });
+              this.setState({
+                imageUrl: "../src/images/shoppingimg.png"
+              });
+            }
+          }}
+        /> */}
+
         <div className="summary_field">{this.props.shoppingList.name}</div>
         <button
           className={classNames({

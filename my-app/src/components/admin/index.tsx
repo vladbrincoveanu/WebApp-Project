@@ -5,7 +5,7 @@ import { Admin } from "./Admin";
 export default () => {
   return (
     <div>
-      <Route exact path="/" component={Admin} />
+      <Route exact path="/admin/home" component={Admin} />
     </div>
   );
 };

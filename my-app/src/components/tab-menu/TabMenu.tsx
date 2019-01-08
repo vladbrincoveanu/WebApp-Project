@@ -6,6 +6,8 @@ import { Link, Redirect } from "react-router-dom";
 import { HeaderTabs } from "../../view-models/header-tabs";
 import { ViewStore } from "../../store/view-store";
 import { Icon } from "../../../node_modules/@blueprintjs/core";
+import { UserCommandModel } from "src/view-models/users";
+import { LocationDescriptor } from "history";
 
 interface Props {
   viewStore: ViewStore;
@@ -19,7 +21,7 @@ interface State {
 class TabMenu extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
-    this.state = { redirectTo: "" };
+    if (localStorage.getItem("user")) this.state = { redirectTo: "" };
   }
 
   private changeActiveTab(tab: HeaderTabs) {
@@ -44,6 +46,32 @@ class TabMenu extends React.Component<Props, State> {
     return null;
   }
 
+  private checkAdmin(data: string | undefined) {
+    if (data == undefined) return "Error";
+    console.log(data);
+    if (data == "DA") {
+      return "/admin";
+    } else {
+      return "/user";
+    }
+  }
+
+  private linkGenerator(id: number): LocationDescriptor {
+    localStorage.setItem("logged", "");
+    var nullCheck = localStorage.getItem("user");
+    if (nullCheck == null) {
+    } else {
+      var user: any = JSON.parse(nullCheck);
+    }
+    if (id == 3) {
+      return this.checkAdmin(user.userName) + "/shoppingList/all";
+    } else if (id == 2) {
+      return this.checkAdmin(user.userName) + "/recipes/all";
+    } else {
+      return this.checkAdmin(user.userName) + "/home";
+    }
+  }
+
   public render() {
     return (
       <div>
@@ -56,7 +84,7 @@ class TabMenu extends React.Component<Props, State> {
               })}
             >
               <Link
-                to="/home"
+                to={this.linkGenerator(1)}
                 onClick={() => this.changeActiveTab(HeaderTabs.home)}
               >
                 <Icon className="icon-home" icon="home" />
@@ -69,7 +97,7 @@ class TabMenu extends React.Component<Props, State> {
               })}
             >
               <Link
-                to="/recipes/all"
+                to={this.linkGenerator(2)}
                 onClick={() => this.changeActiveTab(HeaderTabs.recipes)}
               >
                 <Icon className="icon-ingredients-list" icon="annotation" />
@@ -82,7 +110,7 @@ class TabMenu extends React.Component<Props, State> {
               })}
             >
               <Link
-                to="/shoppingList/all"
+                to={this.linkGenerator(3)}
                 onClick={() => this.changeActiveTab(HeaderTabs.shoppingList)}
               >
                 <Icon className="icon-shopping-cart" icon="shopping-cart" />

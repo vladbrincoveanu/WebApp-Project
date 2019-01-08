@@ -5,7 +5,8 @@ import * as React from "react";
 export default () => {
   return (
     <div>
-      <Route exact path="/user/login" component={Login} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/" component={Login} />
     </div>
   );
 };

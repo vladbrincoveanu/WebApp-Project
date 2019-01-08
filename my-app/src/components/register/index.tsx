@@ -5,7 +5,7 @@ import { Register } from "../register/Register";
 export default () => {
   return (
     <div>
-      <Route exact path="/user/register" component={Register} />
+      <Route exact path="/register" component={Register} />
     </div>
   );
 };

@@ -5,7 +5,8 @@ import { RecipeView } from "./RecipeView";
 export default () => {
   return (
     <React.Fragment>
-      <Route path="/recipe/:id" component={RecipeView} />
+      <Route path="/admin/recipe/:id" component={RecipeView} />
+      <Route path="/user/recipe/:id" component={RecipeView} />
     </React.Fragment>
   );
 };

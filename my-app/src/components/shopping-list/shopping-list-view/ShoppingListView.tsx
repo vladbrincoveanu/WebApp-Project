@@ -82,13 +82,7 @@ export class ShoppingListView extends React.Component<Props, State> {
             />
           </div>
         </div>
-
         <div className="rowShoppingList">
-          <div>
-            <div className="small-image-ShoppingList">
-              <img src={Sl} alt="shopping image" />
-            </div>
-          </div>
           <ItemListView
             handleOpenItemList={this.handleOpenItemList.bind(this)}
             checked={this.state.checked}

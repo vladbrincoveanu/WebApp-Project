@@ -18,6 +18,7 @@ import ShoppingListTabMenuRoute from "./components/shopping-list/shopping-list-t
 import ShoppingListFormRoute from "./components/shopping-list/shopping-list-form";
 import ShoppingListRoute from "./components/shopping-list/shopping-list";
 import ShoppingListViewRoute from "./components/shopping-list/shopping-list-view";
+import { Login } from "./components/login/Login";
 
 interface State {
   logged: any;
@@ -61,34 +62,46 @@ class App extends React.Component<{}, State> {
     }
   };
 
+  Logged = () => {
+    this.setState({
+      logged: localStorage.getItem("logged")
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to shopping store</h1>
           <Provider {...rootStore}>
             <React.Fragment>
               <Router>
-                <React.Fragment>
-                  <LoginRoute />
-                  <RegisterRoute />
-                  <AdminRoute />
-                  <UserRoute />
-                  <TabMenu viewStore={rootStore.viewStore} />
-                  <Welcome
-                    renderWelcomeUser={this.renderWelcomeUser}
-                    updateState={this.updateState}
-                    userStore={rootStore.userStore}
-                  />
-                  <RecipesTabMenuRoute />
-                  <RecipeRoute />
-                  <SingleRecipeRoute />
-                  <RecipeFormRoute />
-                  <ShoppingListTabMenuRoute />
-                  <ShoppingListRoute />
-                  <ShoppingListFormRoute />
-                  <ShoppingListViewRoute />
-                </React.Fragment>
+                {localStorage.getItem("user") != "" ? (
+                  <React.Fragment>
+                    <TabMenu viewStore={rootStore.viewStore} />
+                    <Welcome
+                      renderWelcomeUser={this.renderWelcomeUser}
+                      updateState={this.updateState}
+                      userStore={rootStore.userStore}
+                    />
+                    <AdminRoute />
+                    <UserRoute />
+                    <RecipesTabMenuRoute />
+                    <RecipeRoute />
+                    <SingleRecipeRoute />
+                    <RecipeFormRoute />
+                    <ShoppingListTabMenuRoute />
+                    <ShoppingListRoute />
+                    <ShoppingListFormRoute />
+                    <ShoppingListViewRoute />
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    <LoginRoute />
+                    <RegisterRoute />
+                    {this.updateState()}
+                  </React.Fragment>
+                )}
               </Router>
             </React.Fragment>
           </Provider>
