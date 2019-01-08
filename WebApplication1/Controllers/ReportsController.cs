@@ -19,18 +19,21 @@ namespace WebApplication1.Controllers
     {
         private readonly IRecipeService _recipeService;
         private readonly IIngredientsRepository _ingredientsRepository;
+        private readonly IItemListRepository _itemListRepository;
 
-        public ReportsController(IRecipeService recipeService, IIngredientsRepository ingredientsRepository)
+        public ReportsController(IRecipeService recipeService, IIngredientsRepository ingredientsRepository, IItemListRepository itemListRepository)
         {
             _recipeService = recipeService;
             _ingredientsRepository = ingredientsRepository;
+            _itemListRepository = itemListRepository;
         }
 
         [HttpGet("[action]")]
         public IActionResult GenerateReportPdf()
         {
-            IEnumerable<Ingredient> ingredients = _ingredientsRepository.GetIngredients();
-            return _recipeService.CreatePdfReport((List<Ingredient>) ingredients);
+            var ingredients = _ingredientsRepository.GetIngredients();
+            var itemList = _itemListRepository.GetAll();
+            return _recipeService.CreatePdfReport(ingredients.ToList(),itemList.ToList());
         }
 
         [HttpGet("[action]")]

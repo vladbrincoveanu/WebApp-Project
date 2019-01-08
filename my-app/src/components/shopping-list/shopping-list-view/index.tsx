@@ -5,7 +5,7 @@ import { ShoppingListView } from "./ShoppingListView";
 export default () => {
   return (
     <Route
-      path="/ShoppingList/GetShoppingListById/:id"
+      path="/admin/ShoppingList/GetShoppingListById/:id"
       component={ShoppingListView}
     />
   );

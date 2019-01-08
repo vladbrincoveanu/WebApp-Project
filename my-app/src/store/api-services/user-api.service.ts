@@ -35,6 +35,17 @@ export class UserApiService {
     return data;
   }
 
+  async generateReport() {
+    let header: RequestInit = {
+      ...GET_HEADERS
+    };
+    const response = await fetch(
+      baseUrl + "/api/reports/GenerateReportPdf",
+      header
+    );
+    return "data";
+  }
+
   async getAllUsers(): Promise<UserCommandModel[]> {
     let header: RequestInit = {
       ...GET_HEADERS

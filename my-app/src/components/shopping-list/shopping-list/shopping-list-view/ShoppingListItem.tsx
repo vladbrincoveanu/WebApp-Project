@@ -57,7 +57,8 @@ export class ShoppingListItem extends React.Component<Props, State> {
   };
 
   private handleViewShoppingList(event: any) {
-    window.location.href = "/shoppingList/GetShoppingListById/" + this.props.id;
+    window.location.href =
+      "/admin/shoppingList/GetShoppingListById/" + this.props.id;
   }
 
   private handleOpen = () => this.setState({ isOpen: true });

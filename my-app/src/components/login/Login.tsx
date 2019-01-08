@@ -81,7 +81,7 @@ export class Login extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <img className="background-image" src={Bg} alt="no img" />
-        <div>
+        <div className="divStyle">
           <InputGroup
             placeholder="Enter your username..."
             rightElement={this.mailButton}

@@ -67,7 +67,6 @@ export class ShoppingListForm extends React.Component<Props, State> {
 
     if (recipeId) {
       if (props.location.pathname.includes("addRecipe")) {
-        console.log("AICI");
         this.props.recipesStore.loadActiveRecipe(
           recipeId,
           this.loadRecipe.bind(this)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using RecipesBox.Domain.Models;
 using WebApplication1.Models;
 using WebApplication1.Repositories;
 using WebApplication1.ViewModels;
@@ -45,9 +46,9 @@ namespace WebApplication1.Services
             _recipesRepository.Save();
         }
 
-        public ActionResult CreatePdfReport(List<Ingredient> ingredients)
+        public ActionResult CreatePdfReport(List<Ingredient> ingredients,List<ItemListModel> itemList)
         {
-            return PdfReportService.CreateReportPdfofIngredients(ingredients);
+            return PdfReportService.CreateReportPdfofIngredients(ingredients,itemList);
         }
     }
 }

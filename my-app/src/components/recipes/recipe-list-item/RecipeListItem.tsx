@@ -9,6 +9,7 @@ import MyIcon from "../recipe-icon/MyIcon";
 import { AnchorButton, Button, Dialog, Intent } from "@blueprintjs/core";
 import Cart from "../../../images/cart.png";
 import Rec from "../../../images/recipe.jpg";
+import { LocationDescriptor } from "history";
 
 interface Props {
   recipe: RecipeViewModel;
@@ -35,28 +36,35 @@ export class RecipeListItem extends React.Component<Props, State> {
 
   private handleAddShoppingCart(event: any) {
     this.setState({
-      redirectTo: "/shoppingList/addRecipe/" + this.props.recipe.id
+      redirectTo: "/user/shoppingList/addRecipe/" + this.props.recipe.id
     });
-  }
-
-  private handleDeleteFavorites(event: any) {
-    let updatedRecipe = this.props.recipe;
-    this.props.handleSetFavorites(updatedRecipe);
-    this.handleClose();
-  }
-
-  private handleAddFavorites(event: any) {
-    let updatedRecipe = this.props.recipe;
-    this.props.handleSetFavorites(updatedRecipe);
-    this.handleClose();
   }
 
   onStarClick(nextValue) {
     this.setState({ rating: nextValue });
   }
 
+  private checkAdmin(data: string | undefined) {
+    if (data == undefined) return "Error";
+    if (data == "DA") {
+      return "/admin";
+    } else {
+      return "/user";
+    }
+  }
+
+  private linkGenerator(id: number) {
+    localStorage.setItem("logged", "");
+    var nullCheck = localStorage.getItem("user");
+    if (nullCheck == null) {
+    } else {
+      var user: any = JSON.parse(nullCheck);
+    }
+    return this.checkAdmin(user.userName) + "/recipe/";
+  }
+
   handleClick(recipe: RecipeViewModel) {
-    this.setState({ redirectTo: "/recipe/" + recipe.id });
+    this.setState({ redirectTo: this.linkGenerator(0) + recipe.id });
   }
 
   handleRedirect(): React.ReactNode {
@@ -66,8 +74,6 @@ export class RecipeListItem extends React.Component<Props, State> {
     return null;
   }
 
-  private handleOpen = () => this.setState({ isOpen: true });
-  private handleClose = () => this.setState({ isOpen: false });
   render() {
     return (
       this.handleRedirect() || (

@@ -6,6 +6,8 @@ export default () => {
   return (
     <React.Fragment>
       <Route path="/admin/recipes" component={RecipesTabMenu} />
+      <Route path="/user/recipe" component={RecipesTabMenu} />
+      <Route path="/admin/recipe" component={RecipesTabMenu} />
       <Route path="/user/recipes" component={RecipesTabMenu} />
     </React.Fragment>
   );

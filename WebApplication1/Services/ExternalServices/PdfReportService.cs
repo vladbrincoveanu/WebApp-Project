@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using RecipesBox.Domain.Models;
 using Syncfusion.Drawing;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
@@ -12,7 +13,7 @@ namespace WebApplication1.Services
 {
     public class PdfReportService
     {
-        public static ActionResult CreateReportPdfofIngredients(List<Ingredient> ingredients)
+        public static ActionResult CreateReportPdfofIngredients(List<Ingredient> ingredients,List<ItemListModel> itemList)
         {
             //Create a new PDF document
             PdfDocument document = new PdfDocument();
@@ -27,10 +28,17 @@ namespace WebApplication1.Services
             PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
 
 
-            var data = "";
+            var data = "INGREDIENTS \n";
             foreach (var ingredient in ingredients)
             {
-                data = data + "\n" + "Name"+ingredient.Name+" Quantity:"+ingredient.Quantity+" Discount"+ingredient.Discount;
+                data = data + "\n" + ingredient.Name + ingredient.Quantity + ingredient.QuantityType;
+            }
+
+            data = data + "\n" + "ALL ITEMS";
+
+            foreach (var itemListModel in itemList)
+            {
+                data = data + "\n" + itemListModel.Content + itemListModel.Quantity + itemListModel.QuantityType;
             }
 
             //Draw the text

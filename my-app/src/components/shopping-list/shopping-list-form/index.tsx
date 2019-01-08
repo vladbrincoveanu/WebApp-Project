@@ -11,6 +11,10 @@ export default () => {
         path="/user/shoppingList/addRecipe/:id"
         component={ShoppingListForm}
       />
+      <Route
+        path="/admin/shoppingList/addRecipe/:id"
+        component={ShoppingListForm}
+      />
     </React.Fragment>
   );
 };

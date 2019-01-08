@@ -295,7 +295,7 @@ export class Register extends React.Component<Props, State> {
 
         <div className="row spaceRows">
           <div className="column">
-            <Link style={{ float: "right" }} to="/user/login">
+            <Link style={{ float: "right" }} to="/login/">
               <Button className="cancel-color">Cancel</Button>
             </Link>
           </div>
@@ -306,7 +306,7 @@ export class Register extends React.Component<Props, State> {
               onClick={() => {
                 let checkUser = this.handleSubmit();
                 if (checkUser) {
-                  window.location.href = "/user/login";
+                  window.location.href = "/login/";
                 }
                 return null;
               }}

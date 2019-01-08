@@ -45,6 +45,7 @@ namespace WebApplication1
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IShoppingListRepository,ShoppingListRepository>();
             services.AddTransient<IShoppingListService, ShoppingListService>();
+            services.AddTransient<IItemListRepository, ItemListRepository>();
             services.AddAutoMapper();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

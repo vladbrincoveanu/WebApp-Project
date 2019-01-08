@@ -26,6 +26,11 @@ export class UserStore {
   }
 
   @action
+  public generatePdf() {
+    this.userApi.generateReport();
+  }
+
+  @action
   public logIn(user: UserCommandModel, loadedUserCallback: Function) {
     this.userApi;
     this.userApi.logIn(user).then(data => {

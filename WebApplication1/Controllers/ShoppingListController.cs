@@ -33,6 +33,17 @@ namespace WebApplication1.Controllers
         public ActionResult AddOrUpdateShoppingList([FromBody]ShoppingListViewModel shoppingList)
         {
             _shoppingListService.AddOrUpdateShoppingList(shoppingList);
+            var body = "Shopping list details \n";
+            body = "Description " + body + shoppingList.Description + "Name "+shoppingList.Name;
+            body = body + "\n" + "Items in your shopping list"+ "\n";
+            foreach (var itemListViewModel in shoppingList.ItemList)
+            {
+                body = body + itemListViewModel.Content + itemListViewModel.Quantity + itemListViewModel.QuantityType.Name + "\n";
+            }
+
+            body = body + "THNX FOR PURCHASING!";
+
+            EmailSend.SendEmailTo("gg.vladbrincoveanu@gmail.com","Your shopping list",body);
             return Ok(new { status = "Ok" });
         }
 

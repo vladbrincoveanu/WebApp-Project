@@ -75,6 +75,29 @@ export class RecipeView extends React.Component<Props, State> {
     });
   }
 
+  private checkAdmin(data: string | undefined) {
+    if (data == undefined) return "Error";
+    if (data == "DA") {
+      return "/admin";
+    } else {
+      return "/user";
+    }
+  }
+
+  private linkGenerator(id: number) {
+    localStorage.setItem("logged", "");
+    var nullCheck = localStorage.getItem("user");
+    if (nullCheck == null) {
+    } else {
+      var user: any = JSON.parse(nullCheck);
+    }
+    if (id == 1) {
+      return this.checkAdmin(user.userName) + "/recipes/edit/";
+    } else {
+      return this.checkAdmin(user.userName) + "/shoppingList/addRecipe/";
+    }
+  }
+
   private handleOpenIngredients = () =>
     this.setState({ isOpenIngredients: true });
 
@@ -87,13 +110,13 @@ export class RecipeView extends React.Component<Props, State> {
 
   private handleEditClick = () => {
     this.setState({
-      redirectTo: "/recipes/edit/" + this.state.activeRecipe.id
+      redirectTo: this.linkGenerator(1) + this.state.activeRecipe.id
     });
   };
 
   private handleShoppingCartClick = () => {
     this.setState({
-      redirectTo: "/shoppingList/addRecipe/" + this.state.activeRecipe.id
+      redirectTo: this.linkGenerator(2) + this.state.activeRecipe.id
     });
   };
 
@@ -104,8 +127,6 @@ export class RecipeView extends React.Component<Props, State> {
 
     return null;
   }
-
-  private handleCloseLightbox = () => this.setState({ isOpenImage: false });
 
   private showIngredientsOverlay() {
     return (
