@@ -39,13 +39,7 @@ export class Ingredients extends React.Component<Props, State> {
               <div key={index} className="left-align">
                 <Checkbox
                   checked={this.state.checked[index]}
-                  label={
-                    ingredient.quantity +
-                    " " +
-                    ingredient.quantityType.name +
-                    " " +
-                    ingredient.name
-                  }
+                  label={ingredient.quantity + " " + ingredient.name}
                   onChange={this.handleChecked.bind(this, index)}
                 />
               </div>

@@ -8,5 +8,6 @@ namespace WebApplication1.Services
         void DeleteShoppingList(int shoppingListId);
         List<ShoppingListViewModel> GetAll();
         ShoppingListViewModel GetShoppingListById(int id);
+        void ProcessShoppingList(ShoppingListViewModel soShoppingListViewModel);
     }
 }

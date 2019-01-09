@@ -39,6 +39,30 @@ export class ShoppingListModal extends React.Component<
     this.setState({ requestHasBeenSent: true });
   }
 
+  private checkAdmin(data: string | undefined) {
+    if (data == undefined) return "Error";
+    console.log(data);
+    if (data == "DA") {
+      return "/admin";
+    } else {
+      return "/user";
+    }
+  }
+
+  private linkGenerator(id: number) {
+    localStorage.setItem("logged", "");
+    var nullCheck = localStorage.getItem("user");
+    if (nullCheck == null) {
+    } else {
+      var user: any = JSON.parse(nullCheck);
+    }
+    if (id == 1) {
+      return this.checkAdmin(user.userName) + "/recipes/add";
+    } else {
+      return this.checkAdmin(user.userName) + "/shoppingList/all";
+    }
+  }
+
   render() {
     return (
       <Modal
@@ -91,7 +115,7 @@ export class ShoppingListModal extends React.Component<
                 <div className="submit-button">
                   <Link
                     className="bp3-button bp3-intent-success"
-                    to="/admin/shoppingList/all"
+                    to={this.linkGenerator(2)}
                   >
                     Ok
                   </Link>

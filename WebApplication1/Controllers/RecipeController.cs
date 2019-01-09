@@ -13,10 +13,12 @@ namespace WebApplication1.Controllers
         public class RecipesController : Controller
         {
             private readonly IRecipeService _recipesService;
+            private readonly IUserService _userService;
 
-            public RecipesController(IRecipeService recipesService)
+            public RecipesController(IRecipeService recipesService,IUserService userService)
             {
                 _recipesService = recipesService;
+                _userService = userService;
             }
 
             [HttpGet("[action]")]
@@ -34,6 +36,10 @@ namespace WebApplication1.Controllers
             [HttpPost("[action]")]
             public ActionResult AddOrUpdateRecipe([FromBody]RecipeViewModel recipe)
             {
+                var users = _userService.GetAll();
+                var content = "";
+                content = content + recipe.Name + " " + "Rating " + recipe.Rating;
+                _userService.NotifyAllUsers(users.Select(x=>x.Email).ToList(),"Added a new Recipe!", content);
                 _recipesService.AddOrUpdateRecipe(recipe);
                 return Ok(new { status = "Ok" });
 

@@ -50,6 +50,7 @@ namespace WebApplication1.Services
             }
         }
 
+
         public UserViewModel LogIn(string username, string password)
         {
             return _mapper.Map<UserViewModel>(_userRepository.GetUserByName(username));

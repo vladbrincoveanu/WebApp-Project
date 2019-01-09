@@ -55,7 +55,7 @@ namespace WebApplication1.Data.Migrations
                 column: "ShoppingListId",
                 principalTable: "ShoppingLists",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.NoAction);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

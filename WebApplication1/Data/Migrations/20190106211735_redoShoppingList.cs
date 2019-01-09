@@ -50,7 +50,7 @@ namespace WebApplication1.Data.Migrations
                         column: x => x.ShoppingListId,
                         principalTable: "ShoppingLists",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -90,7 +90,7 @@ namespace WebApplication1.Data.Migrations
                 column: "ShoppingListId",
                 principalTable: "ShoppingLists",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.NoAction);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Recipes_ShoppingLists_ShoppingListId",
@@ -98,7 +98,7 @@ namespace WebApplication1.Data.Migrations
                 column: "ShoppingListId",
                 principalTable: "ShoppingLists",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.NoAction);
         }
     }
 }
